@@ -197,7 +197,6 @@ met2CF.Ameriflux <- function(in.path,in.prefix,outfolder){
     nc <- ncvar_add(nc=nc2,v=lon.var,verbose=TRUE) #add longitude to existing netCDF file
     ncvar_put(nc,varid='longitude',vals=lon.value)
       
-
     nc_close(nc2)
     
   }  ## end loop over files
