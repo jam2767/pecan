@@ -92,7 +92,7 @@ while ($row = @$stmt->fetch(PDO::FETCH_ASSOC)) {
   #row { display: table-row; }
   #left, #right, #middle { display: table-cell; padding-left: 10px; }
 </style>
-<script type="text/javascript" src="jquery-1.10.2.js"></script>
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
 <?php if (!$offline) {?>
   <script type="text/javascript" src="//www.google.com/jsapi"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -410,7 +410,7 @@ function mapsLoaded() {
     });
   });
 
-  map.addListener('dblclick', function(event) {
+  map.addListener('rightclick', function(event) {
     addMarker(event.latLng);
     $("#dialog-form").dialog("open");
     $("#txtlat").val(event.latLng.lat());
@@ -509,8 +509,8 @@ function goHome() {
       <span title="Filter map by networks of sites">
       <label id="sitegrouplabel">Site Group:</label></span>
       <select name="sitegroupid" id="sitegroupid" onChange="updateData();">
-        <option value="">All Sites</option>
         <?php echo $sitegroups; ?>
+        <option value="">All Sites</option>
       </select>
       <div class="spacer"></div>
 
@@ -524,7 +524,7 @@ function goHome() {
       <input name="siteid" id="siteid" type="hidden" value="<?php echo $siteid; ?>"/>
       <input name="sitename" id="sitename" type="text" />
 <?php if ($betydb != "") { ?>
-      <span class="small">Add new site, double click map</span>
+      <span class="small">Add new site, right click map</span>
       <span class="small"><a href="<?php echo $betydb; ?>/sites/new" target="BETY">Remove Pins</a></span>
 <?php } ?>
       <div class="spacer"></div>
